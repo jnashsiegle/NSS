@@ -1,0 +1,534 @@
+
+Ownership
+
+jsiegle@sandbox:/media/sf_sandbox$ ls
+angel  Chapter_04  cron  dashboard  errors.php  index.php  logs  phpinfo.php  test.php
+jsiegle@sandbox:/media/sf_sandbox$ cd Chapter_04/
+jsiegle@sandbox:/media/sf_sandbox/Chapter_04$ ls
+04_01_files  04_02_files  04_03_files  04_04_files  04_05_files  04_06_files  04_07_files  04_08_files
+jsiegle@sandbox:/media/sf_sandbox/Chapter_04$ dir
+04_01_files  04_03_files  04_05_files  04_07_files
+04_02_files  04_04_files  04_06_files  04_08_files
+jsiegle@sandbox:/media/sf_sandbox/Chapter_04$ whoami
+jsiegle
+jsiegle@sandbox:/media/sf_sandbox/Chapter_04$ cd ~
+jsiegle@sandbox:~$ echo $HOME
+/home/jsiegle
+jsiegle@sandbox:~$ clear
+
+jsiegle@sandbox:~$ logout
+Connection to sandbox.dev closed.
+Janas-MacBook-Pro:~ janasiegle$ l
+-bash: l: command not found
+Janas-MacBook-Pro:~ janasiegle$ ls
+Applications			Library
+Books				Movies
+Creative Cloud Files		Music
+Creative Cloud Files (unknown)	NetBeansProjects
+Desktop				Pictures
+Documents			Public
+Downloads			VirtualBox VMs
+Dropbox
+Janas-MacBook-Pro:~ janasiegle$ groups
+staff com.apple.sharepoint.group.1 everyone localaccounts _appserverusr admin _appserveradm _lpadmin _appstore _lpoperator _developer com.apple.access_ftp com.apple.access_screensharing com.apple.access_ssh
+Janas-MacBook-Pro:~ janasiegle$ cd Desktop
+Janas-MacBook-Pro:Desktop janasiegle$ cd /Desktop
+-bash: cd: /Desktop: No such file or directory
+Janas-MacBook-Pro:Desktop janasiegle$ ls
+Ex_Files_UaR_Linux_PHP			coloring-adult-picaso-style-drawing.gif
+Receipts				lizzie
+SASS					sandbox
+ballmer_peak.png			tidbits
+blessed_are_they.txt			treeTrans.png
+Janas-MacBook-Pro:Desktop janasiegle$ cd sandbox
+Janas-MacBook-Pro:sandbox janasiegle$ ls
+Chapter_04	cron		errors.php	logs		test.php
+angel		dashboard	index.php	phpinfo.php
+Janas-MacBook-Pro:sandbox janasiegle$ cd Chapter_04/
+Janas-MacBook-Pro:Chapter_04 janasiegle$ ls
+04_01_files	04_03_files	04_05_files	04_07_files
+04_02_files	04_04_files	04_06_files	04_08_files
+Janas-MacBook-Pro:Chapter_04 janasiegle$ cd /04_03
+-bash: cd: /04_03: No such file or directory
+Janas-MacBook-Pro:Chapter_04 janasiegle$ cd /04_03_files
+-bash: cd: /04_03_files: No such file or directory
+Janas-MacBook-Pro:Chapter_04 janasiegle$ ls
+04_01_files	04_03_files	04_05_files	04_07_files
+04_02_files	04_04_files	04_06_files	04_08_files
+Janas-MacBook-Pro:Chapter_04 janasiegle$ cd 04_03_files
+Janas-MacBook-Pro:04_03_files janasiegle$ ls
+unix_files
+Janas-MacBook-Pro:04_03_files janasiegle$ clear
+
+Permissions
+
+Janas-MacBook-Pro:04_03_files janasiegle$ ls
+unix_files
+Janas-MacBook-Pro:04_03_files janasiegle$ cd unix_files
+Janas-MacBook-Pro:unix_files janasiegle$ ls
+lorem_ipsum.txt		newer_file.txt		ownership.txt		test1
+new_file.txt		overwrite_test2.txt	short_file.txt
+Janas-MacBook-Pro:unix_files janasiegle$ ls-la
+-bash: ls-la: command not found
+Janas-MacBook-Pro:unix_files janasiegle$ ls -la
+total 120
+drwxrwxrwx@ 10 janasiegle  staff    340 Sep 17 13:52 .
+drwxrwxrwx@  4 janasiegle  staff    136 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff   6148 Feb  6  2011 .DS_Store
+-rw-rw-rw-@  1 janasiegle  staff  36232 Feb  5  2011 lorem_ipsum.txt
+-rw-rw-rw-@  1 janasiegle  staff     55 Feb  5  2011 new_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 newer_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     17 Feb  5  2011 overwrite_test2.txt
+-rw-rw-rw-@  1 janasiegle  staff      0 Feb 10  2011 ownership.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 short_file.txt
+drwxrwxrwx@  3 janasiegle  staff    102 Feb  5  2011 test1
+Janas-MacBook-Pro:unix_files janasiegle$ /Users/guest
+-bash: /Users/guest: is a directory
+Janas-MacBook-Pro:unix_files janasiegle$ ls -la /Users/guest
+total 0
+drwxr-xr-x+ 11 Guest  _guest  374 Dec  6  2014 .
+drwxr-xr-x   6 root   admin   204 Dec  6  2014 ..
+-rw-------   1 Guest  _guest    3 Dec  6  2014 .CFUserTextEncoding
+drwx------+  3 Guest  _guest  102 Dec  6  2014 Desktop
+drwx------+  3 Guest  _guest  102 Dec  6  2014 Documents
+drwx------+  3 Guest  _guest  102 Dec  6  2014 Downloads
+drwx------+ 26 Guest  _guest  884 Dec  6  2014 Library
+drwx------+  3 Guest  _guest  102 Dec  6  2014 Movies
+drwx------+  3 Guest  _guest  102 Dec  6  2014 Music
+drwx------+  3 Guest  _guest  102 Dec  6  2014 Pictures
+drwxr-xr-x+  4 Guest  _guest  136 Dec  6  2014 Public
+Janas-MacBook-Pro:unix_files janasiegle$ touch ownership.txt
+Janas-MacBook-Pro:unix_files janasiegle$ ls -la
+total 120
+drwxrwxrwx@ 10 janasiegle  staff    340 Sep 17 13:52 .
+drwxrwxrwx@  4 janasiegle  staff    136 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff   6148 Feb  6  2011 .DS_Store
+-rw-rw-rw-@  1 janasiegle  staff  36232 Feb  5  2011 lorem_ipsum.txt
+-rw-rw-rw-@  1 janasiegle  staff     55 Feb  5  2011 new_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 newer_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     17 Feb  5  2011 overwrite_test2.txt
+-rw-rw-rw-@  1 janasiegle  staff      0 Sep 17 14:22 ownership.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 short_file.txt
+drwxrwxrwx@  3 janasiegle  staff    102 Feb  5  2011 test1
+Janas-MacBook-Pro:unix_files janasiegle$ clear
+
+Janas-MacBook-Pro:unix_files janasiegle$ chown kevin:staff ownership.txt
+chown: kevin: illegal user name
+Janas-MacBook-Pro:unix_files janasiegle$ chown jsiegle:staff ownership.txt
+chown: jsiegle: illegal user name
+Janas-MacBook-Pro:unix_files janasiegle$ chown janasiegle:staff ownership.txt
+Janas-MacBook-Pro:unix_files janasiegle$ ls -la
+total 120
+drwxrwxrwx@ 10 janasiegle  staff    340 Sep 17 13:52 .
+drwxrwxrwx@  4 janasiegle  staff    136 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff   6148 Feb  6  2011 .DS_Store
+-rw-rw-rw-@  1 janasiegle  staff  36232 Feb  5  2011 lorem_ipsum.txt
+-rw-rw-rw-@  1 janasiegle  staff     55 Feb  5  2011 new_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 newer_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     17 Feb  5  2011 overwrite_test2.txt
+-rw-rw-rw-@  1 janasiegle  staff      0 Sep 17 14:22 ownership.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 short_file.txt
+drwxrwxrwx@  3 janasiegle  staff    102 Feb  5  2011 test1
+Janas-MacBook-Pro:unix_files janasiegle$ chown janasiegle:staff test1
+Janas-MacBook-Pro:unix_files janasiegle$ ls - la
+ls: -: No such file or directory
+ls: la: No such file or directory
+Janas-MacBook-Pro:unix_files janasiegle$ ls -la
+total 120
+drwxrwxrwx@ 10 janasiegle  staff    340 Sep 17 13:52 .
+drwxrwxrwx@  4 janasiegle  staff    136 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff   6148 Feb  6  2011 .DS_Store
+-rw-rw-rw-@  1 janasiegle  staff  36232 Feb  5  2011 lorem_ipsum.txt
+-rw-rw-rw-@  1 janasiegle  staff     55 Feb  5  2011 new_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 newer_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     17 Feb  5  2011 overwrite_test2.txt
+-rw-rw-rw-@  1 janasiegle  staff      0 Sep 17 14:22 ownership.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 short_file.txt
+drwxrwxrwx@  3 janasiegle  staff    102 Feb  5  2011 test1
+Janas-MacBook-Pro:unix_files janasiegle$ chown -R janasiegle:staff test1
+Janas-MacBook-Pro:unix_files janasiegle$ chown guest:staff ownership.txt
+chown: ownership.txt: Operation not permitted
+Janas-MacBook-Pro:unix_files janasiegle$ sudo chown guest:staff ownership.txt
+Password:
+Sorry, try again.
+Password:
+Janas-MacBook-Pro:unix_files janasiegle$ ls -la
+total 120
+drwxrwxrwx@ 10 janasiegle  staff    340 Sep 17 13:52 .
+drwxrwxrwx@  4 janasiegle  staff    136 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff   6148 Feb  6  2011 .DS_Store
+-rw-rw-rw-@  1 janasiegle  staff  36232 Feb  5  2011 lorem_ipsum.txt
+-rw-rw-rw-@  1 janasiegle  staff     55 Feb  5  2011 new_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 newer_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     17 Feb  5  2011 overwrite_test2.txt
+-rw-rw-rw-@  1 Guest       staff      0 Sep 17 14:22 ownership.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 short_file.txt
+drwxrwxrwx@  3 janasiegle  staff    102 Feb  5  2011 test1
+Janas-MacBook-Pro:unix_files janasiegle$ sudo chown janasiegle:staff ownership.txt
+Janas-MacBook-Pro:unix_files janasiegle$ ls -la
+total 120
+drwxrwxrwx@ 10 janasiegle  staff    340 Sep 17 13:52 .
+drwxrwxrwx@  4 janasiegle  staff    136 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff   6148 Feb  6  2011 .DS_Store
+-rw-rw-rw-@  1 janasiegle  staff  36232 Feb  5  2011 lorem_ipsum.txt
+-rw-rw-rw-@  1 janasiegle  staff     55 Feb  5  2011 new_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 newer_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     17 Feb  5  2011 overwrite_test2.txt
+-rw-rw-rw-@  1 janasiegle  staff      0 Sep 17 14:22 ownership.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 short_file.txt
+drwxrwxrwx@  3 janasiegle  staff    102 Feb  5  2011 test1
+Janas-MacBook-Pro:unix_files janasiegle$ clear
+
+Janas-MacBook-Pro:unix_files janasiegle$ ls
+lorem_ipsum.txt		newer_file.txt		ownership.txt		test1
+new_file.txt		overwrite_test2.txt	short_file.txt
+Janas-MacBook-Pro:unix_files janasiegle$ cd ..
+Janas-MacBook-Pro:04_03_files janasiegle$ ls
+unix_files
+Janas-MacBook-Pro:04_03_files janasiegle$ cd unix_files
+Janas-MacBook-Pro:unix_files janasiegle$ ls
+lorem_ipsum.txt		newer_file.txt		ownership.txt		test1
+new_file.txt		overwrite_test2.txt	short_file.txt
+Janas-MacBook-Pro:unix_files janasiegle$ cd ../..
+Janas-MacBook-Pro:Chapter_04 janasiegle$ ls
+04_01_files	04_03_files	04_05_files	04_07_files
+04_02_files	04_04_files	04_06_files	04_08_files
+Janas-MacBook-Pro:Chapter_04 janasiegle$ cd _04/_04_files
+-bash: cd: _04/_04_files: No such file or directory
+Janas-MacBook-Pro:Chapter_04 janasiegle$ cd 04_04_files
+Janas-MacBook-Pro:04_04_files janasiegle$ ls
+unix_files
+Janas-MacBook-Pro:04_04_files janasiegle$ cd unix_files
+Janas-MacBook-Pro:unix_files janasiegle$ ls
+lorem_ipsum.txt		newer_file.txt		ownership.txt		test1
+new_file.txt		overwrite_test2.txt	short_file.txt
+Janas-MacBook-Pro:unix_files janasiegle$ clear
+
+
+
+chmod
+
+Janas-MacBook-Pro:unix_files janasiegle$ ls -la
+total 120
+drwxrwxrwx@ 10 janasiegle  staff    340 Sep 17 13:52 .
+drwxrwxrwx@  4 janasiegle  staff    136 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff   6148 Feb  6  2011 .DS_Store
+-rw-rw-rw-@  1 janasiegle  staff  36232 Feb  5  2011 lorem_ipsum.txt
+-rw-rw-rw-@  1 janasiegle  staff     55 Feb  5  2011 new_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 newer_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     17 Feb  5  2011 overwrite_test2.txt
+-rw-rw-rw-@  1 janasiegle  staff      0 Feb 10  2011 ownership.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 short_file.txt
+drwxrwxrwx@  3 janasiegle  staff    102 Feb  5  2011 test1
+Janas-MacBook-Pro:unix_files janasiegle$ ls -la /Users/guest
+total 0
+drwxr-xr-x+ 11 Guest  _guest  374 Dec  6  2014 .
+drwxr-xr-x   6 root   admin   204 Dec  6  2014 ..
+-rw-------   1 Guest  _guest    3 Dec  6  2014 .CFUserTextEncoding
+drwx------+  3 Guest  _guest  102 Dec  6  2014 Desktop
+drwx------+  3 Guest  _guest  102 Dec  6  2014 Documents
+drwx------+  3 Guest  _guest  102 Dec  6  2014 Downloads
+drwx------+ 26 Guest  _guest  884 Dec  6  2014 Library
+drwx------+  3 Guest  _guest  102 Dec  6  2014 Movies
+drwx------+  3 Guest  _guest  102 Dec  6  2014 Music
+drwx------+  3 Guest  _guest  102 Dec  6  2014 Pictures
+drwxr-xr-x+  4 Guest  _guest  136 Dec  6  2014 Public
+Janas-MacBook-Pro:unix_files janasiegle$ cd /users/guest/Pictures
+-bash: cd: /users/guest/Pictures: Permission denied
+Janas-MacBook-Pro:unix_files janasiegle$ ls -la
+total 120
+drwxrwxrwx@ 10 janasiegle  staff    340 Sep 17 13:52 .
+drwxrwxrwx@  4 janasiegle  staff    136 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff   6148 Feb  6  2011 .DS_Store
+-rw-rw-rw-@  1 janasiegle  staff  36232 Feb  5  2011 lorem_ipsum.txt
+-rw-rw-rw-@  1 janasiegle  staff     55 Feb  5  2011 new_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 newer_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     17 Feb  5  2011 overwrite_test2.txt
+-rw-rw-rw-@  1 janasiegle  staff      0 Feb 10  2011 ownership.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 short_file.txt
+drwxrwxrwx@  3 janasiegle  staff    102 Feb  5  2011 test1
+Janas-MacBook-Pro:unix_files janasiegle$ chmod ugo=rx ownership.txt
+Janas-MacBook-Pro:unix_files janasiegle$ ls -la
+total 120
+drwxrwxrwx@ 10 janasiegle  staff    340 Sep 17 13:52 .
+drwxrwxrwx@  4 janasiegle  staff    136 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff   6148 Feb  6  2011 .DS_Store
+-rw-rw-rw-@  1 janasiegle  staff  36232 Feb  5  2011 lorem_ipsum.txt
+-rw-rw-rw-@  1 janasiegle  staff     55 Feb  5  2011 new_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 newer_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     17 Feb  5  2011 overwrite_test2.txt
+-r-xr-xr-x@  1 janasiegle  staff      0 Feb 10  2011 ownership.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 short_file.txt
+drwxrwxrwx@  3 janasiegle  staff    102 Feb  5  2011 test1
+Janas-MacBook-Pro:unix_files janasiegle$ chmod u=rwx,g=rw,o=r ownership.txt
+Janas-MacBook-Pro:unix_files janasiegle$ ls -la
+total 120
+drwxrwxrwx@ 10 janasiegle  staff    340 Sep 17 13:52 .
+drwxrwxrwx@  4 janasiegle  staff    136 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff   6148 Feb  6  2011 .DS_Store
+-rw-rw-rw-@  1 janasiegle  staff  36232 Feb  5  2011 lorem_ipsum.txt
+-rw-rw-rw-@  1 janasiegle  staff     55 Feb  5  2011 new_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 newer_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     17 Feb  5  2011 overwrite_test2.txt
+-rwxrw-r--@  1 janasiegle  staff      0 Feb 10  2011 ownership.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 short_file.txt
+drwxrwxrwx@  3 janasiegle  staff    102 Feb  5  2011 test1
+Janas-MacBook-Pro:unix_files janasiegle$ chmod ugo+x ownership.txt
+Janas-MacBook-Pro:unix_files janasiegle$ ls -la
+total 120
+drwxrwxrwx@ 10 janasiegle  staff    340 Sep 17 13:52 .
+drwxrwxrwx@  4 janasiegle  staff    136 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff   6148 Feb  6  2011 .DS_Store
+-rw-rw-rw-@  1 janasiegle  staff  36232 Feb  5  2011 lorem_ipsum.txt
+-rw-rw-rw-@  1 janasiegle  staff     55 Feb  5  2011 new_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 newer_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     17 Feb  5  2011 overwrite_test2.txt
+-rwxrwxr-x@  1 janasiegle  staff      0 Feb 10  2011 ownership.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 short_file.txt
+drwxrwxrwx@  3 janasiegle  staff    102 Feb  5  2011 test1
+Janas-MacBook-Pro:unix_files janasiegle$ chmod a-x
+usage:	chmod [-fhv] [-R [-H | -L | -P]] [-a | +a | =a  [i][# [ n]]] mode|entry file ...
+	chmod [-fhv] [-R [-H | -L | -P]] [-E | -C | -N | -i | -I] file ...
+Janas-MacBook-Pro:unix_files janasiegle$ ls -la
+total 120
+drwxrwxrwx@ 10 janasiegle  staff    340 Sep 17 13:52 .
+drwxrwxrwx@  4 janasiegle  staff    136 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff   6148 Feb  6  2011 .DS_Store
+-rw-rw-rw-@  1 janasiegle  staff  36232 Feb  5  2011 lorem_ipsum.txt
+-rw-rw-rw-@  1 janasiegle  staff     55 Feb  5  2011 new_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 newer_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     17 Feb  5  2011 overwrite_test2.txt
+-rwxrwxr-x@  1 janasiegle  staff      0 Feb 10  2011 ownership.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 short_file.txt
+drwxrwxrwx@  3 janasiegle  staff    102 Feb  5  2011 test1
+Janas-MacBook-Pro:unix_files janasiegle$ chmod a-x ownership.txt
+Janas-MacBook-Pro:unix_files janasiegle$ ls -la
+total 120
+drwxrwxrwx@ 10 janasiegle  staff    340 Sep 17 13:52 .
+drwxrwxrwx@  4 janasiegle  staff    136 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff   6148 Feb  6  2011 .DS_Store
+-rw-rw-rw-@  1 janasiegle  staff  36232 Feb  5  2011 lorem_ipsum.txt
+-rw-rw-rw-@  1 janasiegle  staff     55 Feb  5  2011 new_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 newer_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     17 Feb  5  2011 overwrite_test2.txt
+-rw-rw-r--@  1 janasiegle  staff      0 Feb 10  2011 ownership.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 short_file.txt
+drwxrwxrwx@  3 janasiegle  staff    102 Feb  5  2011 test1
+Janas-MacBook-Pro:unix_files janasiegle$ chmod ugo-r ownership.txt
+Janas-MacBook-Pro:unix_files janasiegle$ ls -la
+total 120
+drwxrwxrwx@ 10 janasiegle  staff    340 Sep 17 13:52 .
+drwxrwxrwx@  4 janasiegle  staff    136 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff   6148 Feb  6  2011 .DS_Store
+-rw-rw-rw-@  1 janasiegle  staff  36232 Feb  5  2011 lorem_ipsum.txt
+-rw-rw-rw-@  1 janasiegle  staff     55 Feb  5  2011 new_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 newer_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     17 Feb  5  2011 overwrite_test2.txt
+--w--w----   1 janasiegle  staff      0 Feb 10  2011 ownership.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 short_file.txt
+drwxrwxrwx@  3 janasiegle  staff    102 Feb  5  2011 test1
+Janas-MacBook-Pro:unix_files janasiegle$ nano ownership.txt
+Janas-MacBook-Pro:unix_files janasiegle$ chmod ugo=r ownership.txt
+Janas-MacBook-Pro:unix_files janasiegle$ ls -la
+total 120
+drwxrwxrwx@ 10 janasiegle  staff    340 Sep 17 13:52 .
+drwxrwxrwx@  4 janasiegle  staff    136 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff   6148 Feb  6  2011 .DS_Store
+-rw-rw-rw-@  1 janasiegle  staff  36232 Feb  5  2011 lorem_ipsum.txt
+-rw-rw-rw-@  1 janasiegle  staff     55 Feb  5  2011 new_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 newer_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     17 Feb  5  2011 overwrite_test2.txt
+-r--r--r--@  1 janasiegle  staff      0 Feb 10  2011 ownership.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 short_file.txt
+drwxrwxrwx@  3 janasiegle  staff    102 Feb  5  2011 test1
+Janas-MacBook-Pro:unix_files janasiegle$ nano ownership.txt
+Janas-MacBook-Pro:unix_files janasiegle$ chmod u+w ownership.txt
+Janas-MacBook-Pro:unix_files janasiegle$ ls -la
+total 120
+drwxrwxrwx@ 10 janasiegle  staff    340 Sep 17 13:52 .
+drwxrwxrwx@  4 janasiegle  staff    136 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff   6148 Feb  6  2011 .DS_Store
+-rw-rw-rw-@  1 janasiegle  staff  36232 Feb  5  2011 lorem_ipsum.txt
+-rw-rw-rw-@  1 janasiegle  staff     55 Feb  5  2011 new_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 newer_file.txt
+-rw-rw-rw-@  1 janasiegle  staff     17 Feb  5  2011 overwrite_test2.txt
+-rw-r--r--@  1 janasiegle  staff      0 Feb 10  2011 ownership.txt
+-rw-rw-rw-@  1 janasiegle  staff     81 Feb  5  2011 short_file.txt
+drwxrwxrwx@  3 janasiegle  staff    102 Feb  5  2011 test1
+Janas-MacBook-Pro:unix_files janasiegle$ chmod -R g+w test1
+Janas-MacBook-Pro:unix_files janasiegle$ clear
+
+Janas-MacBook-Pro:unix_files janasiegle$ l
+-bash: l: command not found
+Janas-MacBook-Pro:unix_files janasiegle$ ls
+lorem_ipsum.txt		newer_file.txt		ownership.txt		test1
+new_file.txt		overwrite_test2.txt	short_file.txt
+Janas-MacBook-Pro:unix_files janasiegle$ cd ../..
+Janas-MacBook-Pro:Chapter_04 janasiegle$ ls 
+04_01_files	04_03_files	04_05_files	04_07_files
+04_02_files	04_04_files	04_06_files	04_08_files
+Janas-MacBook-Pro:Chapter_04 janasiegle$ cd 04_06_files
+Janas-MacBook-Pro:04_06_files janasiegle$ ls
+Janas-MacBook-Pro:04_06_files janasiegle$ ls-la
+-bash: ls-la: command not found
+Janas-MacBook-Pro:04_06_files janasiegle$ ls -la
+total 16
+drwxrwxrwx@  3 janasiegle  staff   102 Apr 20  2011 .
+drwxrwxrwx@ 11 janasiegle  staff   374 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff  6148 Apr 20  2011 .DS_Store
+Janas-MacBook-Pro:04_06_files janasiegle$ ls
+Janas-MacBook-Pro:04_06_files janasiegle$ touch test
+Janas-MacBook-Pro:04_06_files janasiegle$ l
+-bash: l: command not found
+Janas-MacBook-Pro:04_06_files janasiegle$ ls
+test
+Janas-MacBook-Pro:04_06_files janasiegle$ nano test
+Janas-MacBook-Pro:04_06_files janasiegle$ ls -la
+total 24
+drwxrwxrwx@  4 janasiegle  staff   136 Sep 17 14:59 .
+drwxrwxrwx@ 11 janasiegle  staff   374 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff  6148 Apr 20  2011 .DS_Store
+-rw-r--r--   1 janasiegle  staff    27 Sep 17 14:59 test
+Janas-MacBook-Pro:04_06_files janasiegle$ nano test1
+Janas-MacBook-Pro:04_06_files janasiegle$ l
+-bash: l: command not found
+Janas-MacBook-Pro:04_06_files janasiegle$ ls -la
+total 32
+drwxrwxrwx@  5 janasiegle  staff   170 Sep 17 15:00 .
+drwxrwxrwx@ 11 janasiegle  staff   374 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff  6148 Apr 20  2011 .DS_Store
+-rw-r--r--   1 janasiegle  staff    27 Sep 17 14:59 test
+-rw-r--r--   1 janasiegle  staff    11 Sep 17 15:00 test1
+Janas-MacBook-Pro:04_06_files janasiegle$ chmod 777 test
+Janas-MacBook-Pro:04_06_files janasiegle$ ls -la
+total 32
+drwxrwxrwx@  5 janasiegle  staff   170 Sep 17 15:00 .
+drwxrwxrwx@ 11 janasiegle  staff   374 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff  6148 Apr 20  2011 .DS_Store
+-rwxrwxrwx   1 janasiegle  staff    27 Sep 17 14:59 test
+-rw-r--r--   1 janasiegle  staff    11 Sep 17 15:00 test1
+Janas-MacBook-Pro:04_06_files janasiegle$ chmod 700
+usage:	chmod [-fhv] [-R [-H | -L | -P]] [-a | +a | =a  [i][# [ n]]] mode|entry file ...
+	chmod [-fhv] [-R [-H | -L | -P]] [-E | -C | -N | -i | -I] file ...
+Janas-MacBook-Pro:04_06_files janasiegle$ chmod 700 test
+Janas-MacBook-Pro:04_06_files janasiegle$ ls -la
+total 32
+drwxrwxrwx@  5 janasiegle  staff   170 Sep 17 15:00 .
+drwxrwxrwx@ 11 janasiegle  staff   374 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff  6148 Apr 20  2011 .DS_Store
+-rwx------   1 janasiegle  staff    27 Sep 17 14:59 test
+-rw-r--r--   1 janasiegle  staff    11 Sep 17 15:00 test1
+Janas-MacBook-Pro:04_06_files janasiegle$ chmod 753 test
+Janas-MacBook-Pro:04_06_files janasiegle$ ls -la
+total 32
+drwxrwxrwx@  5 janasiegle  staff   170 Sep 17 15:00 .
+drwxrwxrwx@ 11 janasiegle  staff   374 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff  6148 Apr 20  2011 .DS_Store
+-rwxr-x-wx   1 janasiegle  staff    27 Sep 17 14:59 test
+-rw-r--r--   1 janasiegle  staff    11 Sep 17 15:00 test1
+Janas-MacBook-Pro:04_06_files janasiegle$ chmod 733 test
+Janas-MacBook-Pro:04_06_files janasiegle$ ls -la
+total 32
+drwxrwxrwx@  5 janasiegle  staff   170 Sep 17 15:00 .
+drwxrwxrwx@ 11 janasiegle  staff   374 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff  6148 Apr 20  2011 .DS_Store
+-rwx-wx-wx   1 janasiegle  staff    27 Sep 17 14:59 test
+-rw-r--r--   1 janasiegle  staff    11 Sep 17 15:00 test1
+Janas-MacBook-Pro:04_06_files janasiegle$ chmod 766 test
+Janas-MacBook-Pro:04_06_files janasiegle$ ls -la
+total 32
+drwxrwxrwx@  5 janasiegle  staff   170 Sep 17 15:00 .
+drwxrwxrwx@ 11 janasiegle  staff   374 Sep 17 13:52 ..
+-rw-rw-rw-@  1 janasiegle  staff  6148 Apr 20  2011 .DS_Store
+-rwxrw-rw-   1 janasiegle  staff    27 Sep 17 14:59 test
+-rw-r--r--   1 janasiegle  staff    11 Sep 17 15:00 test1
+Janas-MacBook-Pro:04_06_files janasiegle$ clear
+
+Janas-MacBook-Pro:04_06_files janasiegle$ cd ../..
+Janas-MacBook-Pro:sandbox janasiegle$ l
+-bash: l: command not found
+Janas-MacBook-Pro:sandbox janasiegle$ ls
+Chapter_04	cron		errors.php	logs		test.php
+angel		dashboard	index.php	phpinfo.php
+Janas-MacBook-Pro:sandbox janasiegle$ cd Chapter_04/
+Janas-MacBook-Pro:Chapter_04 janasiegle$ ls
+04_01_files	04_03_files	04_05_files	04_07_files
+04_02_files	04_04_files	04_06_files	04_08_files
+Janas-MacBook-Pro:Chapter_04 janasiegle$ cd 04_08_files
+Janas-MacBook-Pro:04_08_files janasiegle$ ls
+Janas-MacBook-Pro:04_08_files janasiegle$ clear
+
+
+
+sudoers
+
+Janas-MacBook-Pro:04_08_files janasiegle$ whoami
+janasiegle
+Janas-MacBook-Pro:04_08_files janasiegle$ ls -la /Users/guest/Pictures
+ls: Pictures: Permission denied
+Janas-MacBook-Pro:04_08_files janasiegle$ sudo ls -la/Users/guest/Pictures
+Password:
+ls: illegal option -- /
+usage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]
+Janas-MacBook-Pro:04_08_files janasiegle$ ls -la /Users/guest/Pictures
+ls: Pictures: Permission denied
+Janas-MacBook-Pro:04_08_files janasiegle$ sudo ls -la /Users/guest/Pictures
+total 0
+drwx------+  3 Guest  _guest  102 Dec  6  2014 .
+drwxr-xr-x+ 11 Guest  _guest  374 Dec  6  2014 ..
+-rw-r--r--   1 Guest  _guest    0 Dec  6  2014 .localized
+Janas-MacBook-Pro:04_08_files janasiegle$ sudo whoami
+root
+Janas-MacBook-Pro:04_08_files janasiegle$ sudo -u guest whoami
+Guest
+Janas-MacBook-Pro:04_08_files janasiegle$ whoami
+janasiegle
+Janas-MacBook-Pro:04_08_files janasiegle$ cat /etc/sudoers
+cat: /etc/sudoers: Permission denied
+Janas-MacBook-Pro:04_08_files janasiegle$ sudo cat /etc/sudoers
+# sudoers file.
+#
+# This file MUST be edited with the 'visudo' command as root.
+# Failure to use 'visudo' may result in syntax or file permission errors
+# that prevent sudo from running.
+#
+# See the sudoers man page for the details on how to write a sudoers file.
+#
+
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+# Defaults specification
+Defaults	env_reset
+Defaults	env_keep += "BLOCKSIZE"
+Defaults	env_keep += "COLORFGBG COLORTERM"
+Defaults	env_keep += "__CF_USER_TEXT_ENCODING"
+Defaults	env_keep += "CHARSET LANG LANGUAGE LC_ALL LC_COLLATE LC_CTYPE"
+Defaults	env_keep += "LC_MESSAGES LC_MONETARY LC_NUMERIC LC_TIME"
+Defaults	env_keep += "LINES COLUMNS"
+Defaults	env_keep += "LSCOLORS"
+Defaults	env_keep += "SSH_AUTH_SOCK"
+Defaults	env_keep += "TZ"
+Defaults	env_keep += "DISPLAY XAUTHORIZATION XAUTHORITY"
+Defaults	env_keep += "EDITOR VISUAL"
+Defaults	env_keep += "HOME MAIL"
+
+# Runas alias specification
+
+# User privilege specification
+root	ALL=(ALL) ALL
+%admin	ALL=(ALL) ALL
+
+# Uncomment to allow people in group wheel to run all commands
+# %wheel	ALL=(ALL) ALL
+
+# Same thing without a password
+# %wheel	ALL=(ALL) NOPASSWD: ALL
+
+# Samples
+# %users  ALL=/sbin/mount /cdrom,/sbin/umount /cdrom
+# %users  localhost=/sbin/shutdown -h now
+Janas-MacBook-Pro:04_08_files janasiegle$ 
